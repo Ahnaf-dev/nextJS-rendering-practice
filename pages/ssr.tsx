@@ -3,6 +3,7 @@ import Header from "../components/header";
 import Users from "../components/users";
 import fetchUsers from "../api/todoApi";
 import Head from "next/head";
+import Footer from "../components/footer";
 
 interface props {
   users: {
@@ -43,6 +44,7 @@ const SSRPage = ({ users }: props) => {
           ))}
         </div>
       </main>
+      <Footer />
     </>
   );
 };

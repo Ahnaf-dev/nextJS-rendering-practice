@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import Users from "../components/users";
 import fetchUsers from "../api/todoApi";
+import Footer from "../components/footer";
 
 interface props {
   users: {
@@ -41,6 +42,7 @@ export default function Home({ users }: props) {
           ))}
         </div>
       </main>
+      <Footer />
     </>
   );
 }
