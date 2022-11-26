@@ -1,6 +1,4 @@
-import Head from "next/head";
-import { useEffect, useState } from "react";
-import styles from "../styles/Home.module.css";
+import React from "react";
 import Header from "../components/header";
 import Users from "../components/users";
 import fetchUsers from "../api/todoApi";
@@ -13,7 +11,7 @@ interface props {
   }[];
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   return {
     props: {
       users: await fetchUsers(),
@@ -21,12 +19,15 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ users }: props) {
+const SSRPage = ({ users }: props) => {
+  if (users.length === 0) {
+    return <h1 className="center">Loading...</h1>;
+  }
   return (
     <>
       <Header />
       <main>
-        <h1 className="center">Static Site Generation</h1>
+        <h1 className="center">Server Side Rendering</h1>
         <div className="users__container">
           {users.map((user: any, i: number) => (
             <Users key={i} users={user} />
@@ -35,4 +36,6 @@ export default function Home({ users }: props) {
       </main>
     </>
   );
-}
+};
+
+export default SSRPage;
