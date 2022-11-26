@@ -4,7 +4,6 @@ import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import Users from "../components/users";
 import fetchUsers from "../api/todoApi";
-import Head from "next/head";
 
 interface props {
   users: {
@@ -28,10 +27,10 @@ export default function Home({ users }: props) {
       <Head>
         <meta
           name="description"
-          content="Server Side Rendering With NextJS - Example Page"
+          content="Static Site Generation With NextJS - Example Page"
         />
 
-        <title>Server Side Rendering Page Example</title>
+        <title>Static Site Generation Page Example</title>
       </Head>
       <Header />
       <main>
