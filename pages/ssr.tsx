@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/header";
 import Users from "../components/users";
 import fetchUsers from "../api/todoApi";
+import Head from "next/head";
 
 interface props {
   users: {
@@ -25,6 +26,14 @@ const SSRPage = ({ users }: props) => {
   }
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content="Server Side Rendering With NextJS - Example Page"
+        />
+
+        <title>Server Side Rendering Page Example</title>
+      </Head>
       <Header />
       <main>
         <h1 className="center">Server Side Rendering</h1>
