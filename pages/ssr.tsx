@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/header";
 import Users from "../components/users";
 import fetchUsers from "../api/todoApi";
@@ -22,9 +22,13 @@ export async function getServerSideProps() {
 }
 
 const SSRPage = ({ users }: props) => {
-  if (users.length === 0) {
+  const [userList, setUserList] = useState(users);
+  // page renders fully for SEO, use the state from the props given by getServerSideProps for load more functionality
+
+  if (userList.length === 0) {
     return <h1 className="center">Loading...</h1>;
   }
+
   return (
     <>
       <Head>
@@ -39,7 +43,7 @@ const SSRPage = ({ users }: props) => {
       <main>
         <h1 className="center">Server Side Rendering</h1>
         <div className="users__container">
-          {users.map((user: any, i: number) => (
+          {userList.map((user: any, i: number) => (
             <Users key={i} users={user} />
           ))}
         </div>
