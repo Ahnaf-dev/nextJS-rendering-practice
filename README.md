@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rendering Pages With NextJS
+An extremely simple app that showcases the implementation of server side rendering and static site generation on a page by page basis using NextJS.
+
+[Live Link](https://next-js-rendering-practice.vercel.app/)
 
 ## Getting Started
 
